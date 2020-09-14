@@ -9,31 +9,12 @@ function Carousel(props) {
   const currentImageIndex = props.currentImageIndex;
   const setCurrentImageIndex = props.setCurrentImageIndex;
 
-  function previousSlide() {
-    const lastIndex = imgUrls.length - 1;
-    const shouldResetIndex = currentImageIndex === 0;
-    const index = shouldResetIndex ? lastIndex : currentImageIndex - 1;
-
-    setCurrentImageIndex(index);
-  }
-
-  function nextSlide() {
-    const lastIndex = imgUrls.length - 1;
-    const shouldResetIndex = currentImageIndex === lastIndex;
-    const index = shouldResetIndex ? 0 : currentImageIndex + 1;
-
-    setCurrentImageIndex(index);
-  }
   return (
     <div className="carousel">
-      <Arrow direction="left" clickFunction={previousSlide} glyph="&lsaquo;" />
-
       <ImageSlide
         url={imgUrls[currentImageIndex]}
         setShowCarousel={props.setShowCarousel}
       />
-
-      <Arrow direction="right" clickFunction={nextSlide} glyph="&rsaquo;" />
     </div>
   );
 }

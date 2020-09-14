@@ -1,10 +1,11 @@
 .slide-arrow {
-  font-size: 100px;
+  font-size: 70px;
   cursor: pointer;
-  min-width: 85px;
+  max-width: 20px;
   text-align: center;
+  color: antiquewhite;
 }
 
 .slide-arrow:hover {
-  font-size: 120px;
+  font-size: 75px;
 }

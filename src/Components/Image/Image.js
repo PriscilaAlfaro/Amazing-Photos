@@ -6,8 +6,16 @@ function Image(props) {
   const urlImgs = props.url;
 
   return (
-    <div className="item" onClick={props.onClick}>
-      <img src={urlImgs} className={props.selected ? "border" : ""} alt="" />
+    <div
+      className={"item" + (props.showModal ? " block" : "")}
+      onClick={props.onClick}
+    >
+      <img
+        src={urlImgs}
+        onClick={() => props.setShowModal(true)}
+        className={props.selected ? "border" : ""}
+        alt=""
+      />
     </div>
   );
 }

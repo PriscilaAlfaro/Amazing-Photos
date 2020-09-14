@@ -9,8 +9,7 @@ const ImageSlide = (props) => {
   };
 
   return (
-    <div>
-      <button onClick={() => props.setShowCarousel(false)}>X</button>
+    <div className="mainImage-container">
       <div className="image-slide" style={styles}></div>
     </div>
   );

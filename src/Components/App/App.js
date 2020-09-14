@@ -5,6 +5,7 @@ import "./App.css";
 import SearchResults from "../SearchResults/SearchResults";
 import SearchBar from "../SearchBar/SearchBar";
 import Carousel from "../Carousel/Carousel";
+import Modal from "../Modal/Modal";
 
 let key = "6c8f84a0083a820c5860e0c88e1ef6ca";
 
@@ -14,6 +15,7 @@ function App() {
   const [showCarousel, setShowCarousel] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
   const [initialImage, setInitialImage] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   function handleClick(i) {
     setCurrentImageIndex(i);
@@ -31,9 +33,11 @@ function App() {
           return res.json();
         })
         .then((photosObject) => {
-          let photos = photosObject.photos.photo.map((photo) => {
-            return photo.url_n;
-          });
+          let photos = photosObject.photos.photo
+            .filter((photo) => photo.url_n)
+            .map((photo) => {
+              return photo.url_n;
+            });
           setShowLoading(false);
           setUrlImgs(photos);
         });
@@ -61,12 +65,16 @@ function App() {
               <img src="https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif" />
             </div>
           )}
-          {showCarousel && (
-            <Carousel
+          {showModal && (
+            <Modal
               url={urlImg}
               currentImageIndex={currentImageIndex}
               setCurrentImageIndex={setCurrentImageIndex}
               setShowCarousel={setShowCarousel}
+              showModal={showModal}
+              setShowModal={setShowModal}
+              onClick={(i) => handleClick(i)}
+              currentImageIndex={currentImageIndex}
             />
           )}
         </div>
@@ -81,6 +89,8 @@ function App() {
             url={urlImg}
             onClick={(i) => handleClick(i)}
             currentImageIndex={currentImageIndex}
+            showModal={showModal}
+            setShowModal={setShowModal}
           />
         </div>
       </section>

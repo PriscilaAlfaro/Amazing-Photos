@@ -13,6 +13,8 @@ function SearchResults(props) {
             url={img}
             onClick={() => props.onClick(index)}
             key={index}
+            showModal={props.showModal}
+            setShowModal={props.setShowModal}
             selected={props.currentImageIndex === index}
           />
         );
