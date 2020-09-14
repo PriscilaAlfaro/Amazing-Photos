@@ -1,0 +1,10 @@
+.slide-arrow {
+  font-size: 100px;
+  cursor: pointer;
+  min-width: 85px;
+  text-align: center;
+}
+
+.slide-arrow:hover {
+  font-size: 120px;
+}

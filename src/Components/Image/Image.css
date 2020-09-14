@@ -1,0 +1,38 @@
+.flex-container {
+  display: inline-flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item {
+  flex-shrink: 3;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 15px;
+  max-width: 300px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.item img:hover {
+  border-color: black;
+  max-width: 310px;
+  max-height: 220px;
+  width: auto;
+  height: auto;
+}
+
+.border {
+  opacity: 0.5;
+}
+.item img {
+  max-height: 190px;
+  max-width: 280px;
+  justify-content: space-around;
+  border: 5px solid white;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
