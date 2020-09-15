@@ -16,7 +16,7 @@
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 40%;
+  width: 50%;
   height: 555px;
 }
 
@@ -26,11 +26,13 @@
 
 .inferiorBar {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .image-content {
   background-color: black;
-  overflow: hidden;
-  height: 24%;
+  overflow: auto;
+  height: 25%;
 }
 .image {
   float: left;
@@ -38,16 +40,17 @@
   padding: 5px;
   display: flex;
   padding: 10px;
-  height: 81px;
+  max-height: 100px;
 }
 
 .image img {
   width: 100px;
   height: 100%;
   margin: 5px;
+  max-height: 100px;
+  border: 0.5px solid #484747;
 }
 
 .opacity {
-  opacity: 0.5;
-  border: 2px solid red;
+  border: 1.5px solid white !important;
 }

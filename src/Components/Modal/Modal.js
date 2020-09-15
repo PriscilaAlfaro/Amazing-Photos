@@ -3,18 +3,14 @@
 import React from "react";
 import "./Modal.css";
 import Carousel from "../Carousel/Carousel";
-import SearchResults from "../SearchResults/SearchResults";
 import Arrow from "../Arrow/Arrow";
 
 function Modal(props) {
-  const handleClose = props.handleClose;
-  const show = props.show;
-  const imgUrls = props.url;
   const currentImageIndex = props.currentImageIndex;
   const setCurrentImageIndex = props.setCurrentImageIndex;
 
   function previousSlide() {
-    const lastIndex = imgUrls.length - 1;
+    const lastIndex = props.url.length - 1;
     const shouldResetIndex = currentImageIndex === 0;
     const index = shouldResetIndex ? lastIndex : currentImageIndex - 1;
 
@@ -22,7 +18,7 @@ function Modal(props) {
   }
 
   function nextSlide() {
-    const lastIndex = imgUrls.length - 1;
+    const lastIndex = props.url.length - 1;
     const shouldResetIndex = currentImageIndex === lastIndex;
     const index = shouldResetIndex ? 0 : currentImageIndex + 1;
 
@@ -32,12 +28,7 @@ function Modal(props) {
     <div className="modal">
       <section className="modal-content">
         <button onClick={() => props.setShowModal(false)}>X</button>
-        <Carousel
-          url={props.url}
-          currentImageIndex={props.currentImageIndex}
-          setCurrentImageIndex={props.setCurrentImageIndex}
-          setShowCarousel={props.setShowCarousel}
-        />
+        <Carousel url={props.url} currentImageIndex={props.currentImageIndex} />
         <div className="inferiorBar">
           <Arrow
             direction="left"
@@ -50,10 +41,11 @@ function Modal(props) {
               {props.url.map((image, index) => {
                 return (
                   <img
+                    alt=""
                     key={index}
                     src={image}
                     className={index === currentImageIndex ? "opacity" : ""}
-                    alt=""
+                    onClick={() => props.onClick(index)}
                   />
                 );
               })}

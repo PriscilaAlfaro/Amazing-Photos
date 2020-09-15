@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "./SearchBar.css";
 
 function SearchBar(props) {
-  const [inputValue, setInputValue] = useState("");
-
   function handleChange(e) {
     const word = e.target.value;
-    setInputValue(word);
+    props.setInputValue(word);
   }
 
   return (
@@ -14,13 +12,13 @@ function SearchBar(props) {
       <input
         type="text"
         onChange={handleChange}
-        value={inputValue}
+        value={props.inputValue}
         placeholder="I am feeling lucky"
       />
       <button
         className="SearchButton"
         onClick={() => {
-          props.onClick(inputValue);
+          props.onClick(props.inputValue);
         }}
       >
         SEARCH
